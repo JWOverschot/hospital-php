@@ -19,10 +19,10 @@
         <tbody>
         <?php foreach ($patient as $patient) { ?>
             <tr>
-                <td><?= $patient['name'] ?></td>
-                <td><?= $patient['species_id'] ?></td>
-                <td><?= $patient['status'] ?></td>
-                <td><?= $patient['clients_id'] ?></td>
+                <td><?= $patient['patient_name'] ?></td>
+                <td><?= $patient['species_description'] ?></td>
+                <td><?= $patient['patient_status'] ?></td>
+                <td><?= $patient['clients_firstname'] ?> <?= $patient['clients_lastname'] ?></td>
                 <td class="center"><a href="#">edit</a></td>
                 <td class="center"><a href="#">delete</a></td>
             </tr>

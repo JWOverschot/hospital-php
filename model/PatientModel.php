@@ -10,7 +10,10 @@ function getPatient($id) {
 }
 function getAllPatient() {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patient";
+	$sql = "SELECT patient.patient_id, patient.patient_name, species.species_description, patient.patient_status, clients.clients_firstname, clients.clients_lastname
+			FROM patient
+			INNER JOIN species ON patient.species_id = species.species_id
+			INNER JOIN clients ON patient.clients_id = clients.clients_id";
 	$query = $db->prepare($sql);
 		$query->execute();
 	$db = null;
