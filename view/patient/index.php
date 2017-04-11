@@ -16,8 +16,9 @@
                 <td><?= $patient['species_description'] ?></td>
                 <td><?= $patient['patient_status'] ?></td>
                 <td><a href="#"><?= $patient['clients_firstname'] ?> <?= $patient['clients_lastname'] ?></a></td>
-                <td class="center"><a href="#">edit</a></td>
-                <td class="center"><a href="#">delete</a></td>
+                <td><a href="#">edit</a></td>
+                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>patient/delete/<?= $patient['patient_id'] ?>">Verwijder
+                <i class="material-icons right">delete</i></a></td>
             </tr>
         <?php } ?>
         </tbody>

@@ -12,8 +12,9 @@
             <tr>
                 <td><?= $specie['species_id'] ?></td>
                 <td><?= $specie['species_description'] ?></td>
-                <td class="center"><a href="#">edit</a></td>
-                <td class="center"><a href="#">delete</a></td>
+                <td><a href="#">edit</a></td>
+                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>species/delete/<?= $specie['species_id'] ?>">Verwijder
+                <i class="material-icons right">delete</i></a></td>
             </tr>
         <?php } ?>
         </tbody>

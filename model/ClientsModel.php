@@ -1,7 +1,7 @@
 <?php
 function getClients($id) {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patient WHERE id = :id";
+	$sql = "SELECT * FROM clients WHERE clients_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		":id" => $id));
@@ -27,7 +27,7 @@ function deleteClients($id) {
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "DELETE FROM patient WHERE id = :id ";
+	$sql = "DELETE FROM clients WHERE clients_id = :id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));

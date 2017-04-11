@@ -1,7 +1,7 @@
 <?php
 function getSpecies($id) {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patient WHERE id = :id";
+	$sql = "SELECT * FROM species WHERE species_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		":id" => $id));
@@ -21,13 +21,13 @@ function getAllSpecies() {
 function editSpecies() {
 	
 }
-function deleteSpecies($id) {
+function deleteSpecie($id) {
 	if (!$id) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "DELETE FROM patient WHERE id = :id ";
+	$sql = "DELETE FROM species WHERE species_id = :id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));

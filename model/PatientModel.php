@@ -1,13 +1,14 @@
 <?php
 function getPatient($id) {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patient WHERE id = :id";
+	$sql = "SELECT * FROM patient WHERE patient_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		":id" => $id));
 	$db = null;
 	return $query->fetch();
 }
+
 function getAllPatient() {
 	$db = openDatabaseConnection();
 	$sql = "SELECT patient.patient_id, patient.patient_name, species.species_description, patient.patient_status, clients.clients_firstname, clients.clients_lastname
@@ -20,16 +21,18 @@ function getAllPatient() {
 
 	return $query->fetchAll();
 }
+
 function editPatient() {
 	
 }
-function deletePatient($id) {
+
+function deletePatient($id = null) {
 	if (!$id) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "DELETE FROM patient WHERE id = :id ";
+	$sql = "DELETE FROM patient WHERE patient_id = :id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));
@@ -37,6 +40,7 @@ function deletePatient($id) {
 	
 	return true;
 }
+
 function createPatient() {
 	
 }

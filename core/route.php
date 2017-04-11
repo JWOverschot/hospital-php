@@ -1,10 +1,10 @@
-<?php
+	<?php
 function route()
 {
 	$url = splitUrl();
 	if (!$url['controller']) {
 		
-		require(ROOT . 'controller/PatientController.php');
+		require(ROOT . 'controller/' . DEFAULT_CONTROLLER . 'Controller.php');
 		call_user_func('index');
 	
 	} elseif (file_exists(ROOT . 'controller/' . $url['controller'] . '.php')) {

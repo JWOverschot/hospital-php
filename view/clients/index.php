@@ -16,8 +16,9 @@
                 <td><?= $client['clients_lastname'] ?></td>
                 <td><?= $client['clients_phone'] ?></td>
                 <td><?= $client['clients_email'] ?></td>
-                <td class="center"><a href="#">edit</a></td>
-                <td class="center"><a href="#">delete</a></td>
+                <td><a href="#">edit</a></td>
+                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>clients/delete/<?= $client['clients_id'] ?>">Verwijder
+                <i class="material-icons right">delete</i></a></td>
             </tr>
         <?php } ?>
         </tbody>
