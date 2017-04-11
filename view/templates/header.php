@@ -15,3 +15,9 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="<?= URL . '/public/js/materialize.min.js' ?>"></script>
+      <h1>Hospital</h1>
+      <ul>
+        <li><a href="<?= URL . 'patient/index' ?>">Patiënts</a></li>
+        <li><a href="<?= URL . 'clients/index' ?>">Clients</a></li>
+        <li><a href="<?= URL . 'species/index' ?>">Species</a></li>
+      </ul>

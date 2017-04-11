@@ -1,10 +1,3 @@
-<h1>Hospital</h1>
-    <ul>
-        <li><a href="patients.html">Patiënts</a></li>
-        <li><a href="clients.html">Clients</a></li>
-        <li><a href="species.html">Species</a></li>
-    </ul>
-
     <h2>Patiënts</h2>
     <table>
         <thead>
@@ -22,7 +15,7 @@
                 <td><?= $patient['patient_name'] ?></td>
                 <td><?= $patient['species_description'] ?></td>
                 <td><?= $patient['patient_status'] ?></td>
-                <td><?= $patient['clients_firstname'] ?> <?= $patient['clients_lastname'] ?></td>
+                <td><a href="#"><?= $patient['clients_firstname'] ?> <?= $patient['clients_lastname'] ?></a></td>
                 <td class="center"><a href="#">edit</a></td>
                 <td class="center"><a href="#">delete</a></td>
             </tr>
@@ -30,4 +23,3 @@
         </tbody>
     </table>
         <p><a href="#">Create</a></p>
-        <p><a href="index.html">Home</a></p>
