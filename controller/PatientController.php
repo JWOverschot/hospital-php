@@ -8,7 +8,10 @@ function index()
 }
 function create()
 {
-	render("patient/create");
+	render("patient/create", array(
+		'species' => getSpecies(),
+		'clients' => getClients()
+	));
 }
 function createSave()
 {
