@@ -14,13 +14,13 @@
             <tr>
                 <td><?= $client['clients_firstname']; ?></td>
                 <td><?= $client['clients_lastname']; ?></td>
-                <td><?= $client['clients_phone']; ?></td>
-                <td><?= $client['clients_email']; ?></td>
-                <td><a href="#">edit</a></td>
-                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>clients/delete/<?= $client['clients_id']; ?>">Verwijder
+                <td><a href="tel:<?= $client['clients_phone']; ?>"><?= $client['clients_phone']; ?></a></td>
+                <td><a href="mailto:<?= $client['clients_email']; ?>" target="_top"><?= $client['clients_email']; ?></a></td>
+                <td><a href="<?= URL ?>client/edit/<?= $client['clients_id']; ?>">edit</a></td>
+                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>client/delete/<?= $client['clients_id']; ?>">Verwijder
                 <i class="material-icons right">delete</i></a></td>
             </tr>
         <?php } ?>
         </tbody>
     </table>
-        <p><a href="#">Create</a></p>
+        <p><a href="<?= URL ?>client/create">Create</a></p>

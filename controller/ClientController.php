@@ -1,14 +1,14 @@
 <?php
-require(ROOT . "model/ClientsModel.php");
+require(ROOT . "model/ClientModel.php");
 function index()
 {
-	render("clients/index", array(
+	render("client/index", array(
 		'clients' => getAllClients()
 	));
 }
 function create()
 {
-	render("clients/create");
+	render("client/create");
 }
 function createSave()
 {
@@ -16,12 +16,12 @@ function createSave()
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "clients/index");
+	header("Location:" . URL . "client/index");
 }
 function edit($id)
 {
-	render("clients/edit", array(
-		'clients' => getClient($id)
+	render("client/edit", array(
+		'client' => getClient($id)
 	));
 }
 function editSave()
@@ -30,7 +30,7 @@ function editSave()
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "clients/index");
+	header("Location:" . URL . "client/index");
 } 
 function delete($id)
 {
@@ -38,5 +38,5 @@ function delete($id)
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "clients/index");
+	header("Location:" . URL . "client/index");
 }

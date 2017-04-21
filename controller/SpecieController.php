@@ -1,14 +1,14 @@
 <?php
-require(ROOT . "model/SpeciesModel.php");
+require(ROOT . "model/SpecieModel.php");
 function index()
 {
-	render("species/index", array(
+	render("specie/index", array(
 		'species' => getAllSpecies()
 	));
 }
 function create()
 {
-	render("species/create");
+	render("specie/create");
 }
 function createSave()
 {
@@ -16,12 +16,12 @@ function createSave()
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "species/index");
+	header("Location:" . URL . "specie/index");
 }
 function edit($id)
 {
-	render("species/edit", array(
-		'species' => getSpecie($id)
+	render("specie/edit", array(
+		'specie' => getSpecie($id)
 	));
 }
 function editSave()
@@ -30,7 +30,7 @@ function editSave()
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "species/index");
+	header("Location:" . URL . "specie/index");
 } 
 function delete($id)
 {
@@ -38,5 +38,5 @@ function delete($id)
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "species/index");
+	header("Location:" . URL . "specie/index");
 }

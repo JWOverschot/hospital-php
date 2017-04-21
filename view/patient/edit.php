@@ -1,51 +1,50 @@
 <div class="container">
-    <h1>Bijwerken</h1>
-    <?php
-    $day = $birthday['birthday_day'];
-    $month = $birthday['birthday_month'];
-    $year = $birthday['birthday_year'];
-    
-
-    if (strlen($day) == 1) {
-        $day = '0' . $day;
-    }
-    if (strlen($month) == 1) {
-        $month = '0' . $month;
-    }
-    if (strlen($year) == 1) {
-        $year = '000' . $year;
-    }
-    elseif (strlen($year) == 2) {
-        $year = '00' . $year;
-    }
-    elseif (strlen($year) == 3) {
-        $year = '0' . $year;
-    }
-
-    $date = $year . '-' . $month . '-' . $day;
-    ?>
-    <div class="row">
-        <form class="col s12" action="<?= URL ?>birthday/editSave" method="post">
-            <div class="input-field col s6">
-              <input id="name" type="text" name="name" value="<?= $birthday['birthday_name']; ?>">
-              <label for="name">Naam</label>
+<h1>Wijzig</h1>
+    <form class="col s12" action="<?= URL ?>patient/editSave" method="post">
+    <div class="input-field col s6">
+                <input id="name" type="text" name="name" value="<?= $patient['patient_name']; ?>">
+                <label for="name">Name</label>
             </div>
-            <div class="input-field col s6">
-              <input id="surname" type="text" name="surname" value="<?= $birthday['birthday_surname']; ?>">
-              <label for="surname">Achternaam</label>
-            </div>
-            <div class="input-field col s12">  
-                <input type="date" placeholder="jjjj-mm-dd" class="datepicker" name="date" value="<?= $date ?>">
-            </div>
+            <select class="browser-default" name="species">
+                <?php foreach ($species as $specie) { ?>
+                    <?php 
+                        if ($patient['species_id'] == $specie['species_id'])
+                        {
+                            $selected = "selected";
+                        } else
+                        {
+                            $selected = null;
+                        }
+                    ?>
+                    <option <?= $selected ?> value="<?= $specie['species_id']; ?>"><?= $specie['species_description']; ?></option>
+                <?php } ?>
+            </select>
+            <label>Species</label>
             <div class="input-field col s12">
-                <textarea id="description" class="materialize-textarea" name="description" maxlength="500" data-length="500"><?= $birthday['birthday_description']; ?></textarea>
-                <label for="description">Beschrijving</label>
+                <textarea id="status" class="materialize-textarea" name="status" maxlength="500" data-length="500"><?= $patient['patient_status']; ?></textarea>
+                <label for="status">Status</label>
             </div>
-            <input type="hidden" name="id" value="<?= $birthday['birthday_id']; ?>">
+            <select class="browser-default" name="clients">
+                <?php foreach ($clients as $client) { ?>
+                    <?php 
+                        if ($patient['clients_id'] == $client['clients_id'])
+                        {
+                            $selected = "selected";
+                        } else
+                        {
+                            $selected = null;
+                        }
+                    ?>
+                    <option <?= $selected ?> value="<?= $client['clients_id']; ?>"><?= $client['clients_firstname']; ?> <?= $client['clients_lastname']; ?></option>
+                <?php } ?>
+            </select>
+            <label>Clients</label>
+
+
+            <input type="hidden" name="id" value="<?= $patient['patient_id']; ?>">
             <input class="waves-effect waves-light btn" type="submit" value="Bijwerken">
-            <a class="btn waves-effect waves-light red" href="<?= URL ?>birthday/delete/<?= $birthday['birthday_id'] ?>">Verwijder
+            <a class="btn waves-effect waves-light red" href="<?= URL ?>patient/delete/<?= $patient['patient_id'] ?>">Verwijder
                 <i class="material-icons right">delete</i>
             </a>
-            <a class="waves-effect waves-light btn grey" href="<?= URL ?>birthday/index">Annuleer</a>
-        </form>
-    </div>  
+            <a class="waves-effect waves-light btn grey" href="<?= URL ?>patient/index">Annuleer</a>
+        </form> 

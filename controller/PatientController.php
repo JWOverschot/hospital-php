@@ -24,7 +24,9 @@ function createSave()
 function edit($id)
 {
 	render("patient/edit", array(
-		'patient' => getPatient($id)
+		'patient' => getPatient($id),
+		'species' => getSpecies(),
+		'clients' => getClients()
 	));
 }
 function editSave()
