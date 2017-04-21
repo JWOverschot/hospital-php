@@ -12,11 +12,10 @@
             <tr>
                 <td><?= $specie['species_id']; ?></td>
                 <td><?= $specie['species_description']; ?></td>
-                <td><a href="<?= URL ?>specie/edit/<?= $specie['species_id']; ?>">edit</a></td>
-                <td><a class="btn waves-effect waves-light red" href="<?= URL ?>specie/delete/<?= $specie['species_id']; ?>">Verwijder
-                <i class="material-icons right">delete</i></a></td>
+                <td><a class="btn-floating waves-effect waves-light blue" href="<?= URL ?>specie/edit/<?= $specie['species_id']; ?>"><i class="material-icons">mode_edit</i></a></td>
+                <td><a class="btn-floating waves-effect waves-light red" href="<?= URL ?>specie/delete/<?= $specie['species_id']; ?>"><i class="material-icons">delete</i></a></td>
             </tr>
         <?php } ?>
         </tbody>
     </table>
-        <p><a href="<?= URL ?>specie/create">Create</a></p>
+        <a class="btn-floating waves-effect waves-light green accent-3" href="<?= URL ?>specie/create"><i class="material-icons">add</i></a>

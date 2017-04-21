@@ -6,6 +6,12 @@ function index()
 		'clients' => getAllClients()
 	));
 }
+function info($id)
+{
+	render("client/info", array(
+		'client' => getClient($id)
+	));
+}
 function create()
 {
 	render("client/create");
