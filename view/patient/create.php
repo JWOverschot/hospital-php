@@ -5,6 +5,20 @@
 	        	<input id="name" type="text" name="name">
 	        	<label for="name">Name</label>
 	        </div>
+	        <div class="input-field col s6">
+		        <p>
+	        		<input type="radio" name="gender" value="male" id="male"> 
+	        		<label for="male">Male</label>
+	    		</p>
+	    		<p>
+					<input type="radio" name="gender" value="female" id="female">
+					<label for="female">Female</label>
+				</p>
+				<p>
+					<input type="radio" name="gender" value="other" id="other">
+					<label for="other">Other</label>
+				</p><br>
+  			</div>
          	<div class="input-field col s6">
 				<select name="species">
 					<option disabled selected>Kies een dier</option>

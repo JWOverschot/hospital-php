@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Gender</th>
                 <th>Species</th>
                 <th>Status</th>
                 <th>Client</th>
@@ -13,6 +14,7 @@
         <?php foreach ($patient as $patient) { ?>
             <tr>
                 <td><?= $patient['patient_name']; ?></td>
+                <td><?= $patient['patient_gender']; ?></td>
                 <td><?= $patient['species_description']; ?></td>
                 <td><?= $patient['patient_status']; ?></td>
                 <td><a href="<?= URL ?>client/info/<?= $patient['clients_id'] ?>"><?= $patient['clients_firstname']; ?> <?= $patient['clients_lastname']; ?></a></td>

@@ -6,6 +6,54 @@
             <label for="name">Name</label>
         </div>
         <div class="input-field col s6">
+            <?php
+                if ($patient['patient_gender'] == 'male')
+                {
+                    $male = "checked";
+                }
+                else
+                {
+                    $male = null;
+                }
+                if ($patient['patient_gender'] == 'female')
+                {
+                    $female = "checked";
+                }
+                else
+                {
+                    $female = null;
+                }
+                if ($patient['patient_gender'] == 'other')
+                {
+                    $other = "checked";
+                }
+                else
+                {
+                    $other = null;
+                }
+                if ($patient['patient_gender'] == null)
+                {
+                    $other = "checked";
+                }
+                else
+                {
+                    $other = null;
+                }
+            ?>
+            <p>
+                <input type="radio" name="gender" value="male" id="male" <?= $male ?>> 
+                <label for="male">Male</label>
+            </p>
+            <p>
+                <input type="radio" name="gender" value="female" id="female" <?= $female ?>>
+                <label for="female">Female</label>
+            </p>
+            <p>
+                <input type="radio" name="gender" value="other" id="other" <?= $other ?>>
+                <label for="other">Other</label>
+            </p><br>
+        </div>
+        <div class="input-field col s6">
             <select name="species">
                 <?php foreach ($species as $specie) { ?>
                     <?php 
