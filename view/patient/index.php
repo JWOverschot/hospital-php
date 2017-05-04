@@ -2,11 +2,68 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Species</th>
-                <th>Status</th>
-                <th>Client</th>
+                <?php
+                    $sort = null;
+                    //arrow up = &#x25B2
+                    //arrow down = &#x25BC
+                    $arrowName = null;
+                    $arrowGender = null;
+                    $arrowSpecies = null;
+                    $arrowStatus = null;
+                    $arrowClient = null;
+                    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                    if (strpos($actual_link, '?') !== false) {
+                        $sort = true;
+                        if ($sort == true) {
+                            $sort = 'asc';
+                        }
+                        else {
+                            $sort = 'desc';
+                        }
+                        
+
+                        if ($_GET['sort'] == 'name_asc') {
+                            $arrowName = "&#x25B2";
+                        }
+                        elseif ($_GET['sort'] == 'name_desc') {
+                            $arrowName = "&#x25BC";
+                        }
+
+                        if ($_GET['sort'] == 'gender_asc') {
+                            $arrowGender = "&#x25B2";
+                        }
+                        elseif ($_GET['sort'] == 'gender_desc') {
+                            $arrowGender = "&#x25BC";
+                        }
+
+                        if ($_GET['sort'] == 'species_asc') {
+                            $arrowSpecies = "&#x25B2";
+                        }
+                        elseif ($_GET['sort'] == 'species_desc') {
+                            $arrowSpecies = "&#x25BC";
+                        }
+
+                        if ($_GET['sort'] == 'status_asc') {
+                            $arrowStatus = "&#x25B2";
+                        }
+                        elseif ($_GET['sort'] == 'status_desc') {
+                            $arrowStatus = "&#x25BC";
+                        }
+
+                        if ($_GET['sort'] == 'client_asc') {
+                            $arrowClient = "&#x25B2";
+                        }
+                        elseif ($_GET['sort'] == 'client_desc') {
+                            $arrowClient = "&#x25BC";
+                        }
+                    }
+
+                ?>
+                <th id="name"><a  href="<?= URL ?>patient/index?sort=name_asc">Name<?= $arrowName ?></a></th>
+                <th id="gender"><a href="<?= URL ?>patient/index?sort=gender_asc">Gender<?= $arrowGender ?></a></th>
+                <th id="species"><a href="<?= URL ?>patient/index?sort=species_asc">Species<?= $arrowSpecies ?></a></th>
+                <th id="status"><a href="<?= URL ?>patient/index?sort=status_asc">Status<?= $arrowStatus ?></a></th>
+                <th id="clients"><a href="<?= URL ?>patient/index?sort=client_asc">Client<?= $arrowClient ?></a></th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>
