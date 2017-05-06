@@ -50,10 +50,10 @@
                             $arrowStatus = "&#x25BC";
                         }
 
-                        if ($_GET['sort'] == 'client_asc') {
+                        if ($_GET['sort'] == 'clients_asc') {
                             $arrowClient = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'client_desc') {
+                        elseif ($_GET['sort'] == 'clients_desc') {
                             $arrowClient = "&#x25BC";
                         }
                     }
@@ -63,7 +63,7 @@
                 <th id="gender"><a href="<?= URL ?>patient/index?sort=gender_asc">Gender<?= $arrowGender ?></a></th>
                 <th id="species"><a href="<?= URL ?>patient/index?sort=species_asc">Species<?= $arrowSpecies ?></a></th>
                 <th id="status"><a href="<?= URL ?>patient/index?sort=status_asc">Status<?= $arrowStatus ?></a></th>
-                <th id="clients"><a href="<?= URL ?>patient/index?sort=client_asc">Client<?= $arrowClient ?></a></th>
+                <th id="clients"><a href="<?= URL ?>patient/index?sort=clients_asc">Client<?= $arrowClient ?></a></th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>
