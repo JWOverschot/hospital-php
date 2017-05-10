@@ -3,7 +3,11 @@
         <thead>
             <tr>
                 <?php
-                    $sort = null;
+                    if (isset($_GET['sort'])) {
+                        $sort = $_GET['sort'];
+                    } else {
+                        $sort = 'desc';
+                    }
                     //arrow up = &#x25B2
                     //arrow down = &#x25BC
                     $arrowName = null;
@@ -13,57 +17,48 @@
                     $arrowClient = null;
                     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                     if (strpos($actual_link, '?') !== false) {
-                        $sort = true;
-                        if ($sort == true) {
-                            $sort = 'asc';
-                        }
-                        else {
-                            $sort = 'desc';
-                        }
-                        
-
-                        if ($_GET['sort'] == 'name_asc') {
+                        if ($_GET['order'] == 'name' && $_GET['sort'] == 'asc') {
                             $arrowName = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'name_desc') {
+                        elseif ($_GET['order'] == 'name' && $_GET['sort'] == 'desc') {
                             $arrowName = "&#x25BC";
                         }
 
-                        if ($_GET['sort'] == 'gender_asc') {
+                        if ($_GET['order'] == 'gender' && $_GET['sort'] == 'asc') {
                             $arrowGender = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'gender_desc') {
+                        elseif ($_GET['order'] == 'gender' && $_GET['sort'] == 'desc') {
                             $arrowGender = "&#x25BC";
                         }
 
-                        if ($_GET['sort'] == 'species_asc') {
+                        if ($_GET['order'] == 'species' && $_GET['sort'] == 'asc') {
                             $arrowSpecies = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'species_desc') {
+                        elseif ($_GET['order'] == 'species' && $_GET['sort'] == 'desc') {
                             $arrowSpecies = "&#x25BC";
                         }
 
-                        if ($_GET['sort'] == 'status_asc') {
+                        if ($_GET['order'] == 'status' && $_GET['sort'] == 'asc') {
                             $arrowStatus = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'status_desc') {
+                        elseif ($_GET['order'] == 'status' && $_GET['sort'] == 'desc') {
                             $arrowStatus = "&#x25BC";
                         }
 
-                        if ($_GET['sort'] == 'clients_asc') {
+                        if ($_GET['order'] == 'clients' && $_GET['sort'] == 'asc') {
                             $arrowClient = "&#x25B2";
                         }
-                        elseif ($_GET['sort'] == 'clients_desc') {
+                        elseif ($_GET['order'] == 'clients' && $_GET['sort'] == 'desc') {
                             $arrowClient = "&#x25BC";
                         }
                     }
-
+                    $sort == 'desc' ? $sort = 'asc' : $sort = 'desc';
                 ?>
-                <th id="name"><a  href="<?= URL ?>patient/index?sort=name_asc">Name<?= $arrowName ?></a></th>
-                <th id="gender"><a href="<?= URL ?>patient/index?sort=gender_asc">Gender<?= $arrowGender ?></a></th>
-                <th id="species"><a href="<?= URL ?>patient/index?sort=species_asc">Species<?= $arrowSpecies ?></a></th>
-                <th id="status"><a href="<?= URL ?>patient/index?sort=status_asc">Status<?= $arrowStatus ?></a></th>
-                <th id="clients"><a href="<?= URL ?>patient/index?sort=clients_asc">Client<?= $arrowClient ?></a></th>
+                <th id="name"><a  href="<?= URL ?>patient/index?order=name&&sort=<?= $sort ?>">Name<?= $arrowName ?></a></th>
+                <th id="gender"><a href="<?= URL ?>patient/index?order=gender&&sort=<?= $sort ?>">Gender<?= $arrowGender ?></a></th>
+                <th id="species"><a href="<?= URL ?>patient/index?order=species&&sort=<?= $sort ?>">Species<?= $arrowSpecies ?></a></th>
+                <th id="status"><a href="<?= URL ?>patient/index?order=status&&sort=<?= $sort ?>">Status<?= $arrowStatus ?></a></th>
+                <th id="clients"><a href="<?= URL ?>patient/index?order=clients&&sort=<?= $sort ?>">Client<?= $arrowClient ?></a></th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>

@@ -44,34 +44,34 @@ function getAllPatient() {
 			INNER JOIN species ON patient.species_id = species.species_id
 			INNER JOIN clients ON patient.clients_id = clients.clients_id";
 	if (strpos($actual_link, '?') !== false) {
-		if ($_GET['sort'] == 'name_asc') {
+		if ($_GET['order'] == 'name' && $_GET['sort'] == 'asc') {
 			$sql .= " ORDER BY patient.patient_name ASC";
 		}
-		elseif ($_GET['sort'] == 'name_desc') {
+		elseif ($_GET['order'] == 'name' && $_GET['sort'] == 'desc') {
 			$sql .= " ORDER BY patient.patient_name DESC";
 		}
-		if ($_GET['sort'] == 'gender_asc') {
+		if ($_GET['order'] == 'gender' && $_GET['sort'] == 'asc') {
 			$sql .= " ORDER BY patient.patient_gender ASC";
 		}
-		elseif ($_GET['sort'] == 'gender_desc') {
+		elseif ($_GET['order'] == 'gender' && $_GET['sort'] == 'desc') {
 			$sql .= " ORDER BY patient.patient_gender DESC";
 		}
-		if ($_GET['sort'] == 'species_asc') {
+		if ($_GET['order'] == 'species' && $_GET['sort'] == 'asc') {
 			$sql .= " ORDER BY species.species_description ASC";
 		}
-		elseif ($_GET['sort'] == 'species_desc') {
+		elseif ($_GET['order'] == 'species' && $_GET['sort'] == 'desc') {
 			$sql .= " ORDER BY species.species_description DESC";
 		}
-		if ($_GET['sort'] == 'status_asc') {
+		if ($_GET['order'] == 'status' && $_GET['sort'] == 'asc') {
 			$sql .= " ORDER BY patient.patient_status ASC";
 		}
-		elseif ($_GET['sort'] == 'status_desc') {
+		elseif ($_GET['order'] == 'status' && $_GET['sort'] == 'desc') {
 			$sql .= " ORDER BY patient.patient_status DESC";
 		}
-		if ($_GET['sort'] == 'clients_asc') {
+		if ($_GET['order'] == 'clients' && $_GET['sort'] == 'asc') {
 			$sql .= " ORDER BY clients.clients_firstname ASC";
 		}
-		elseif ($_GET['sort'] == 'clients_desc') {
+		elseif ($_GET['order'] == 'clients' && $_GET['sort'] == 'desc') {
 			$sql .= " ORDER BY clients.clients_firstname DESC";
 		}
 	}
